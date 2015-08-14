@@ -1,0 +1,113 @@
+<div class="container" ng-controller="RegistrationController as registration">
+    <div class="row">
+    <div class="col-sm-12">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Generation InFocus Registration</h3>
+            </div>
+            <div class="panel-body">
+              <!-- begin //-->
+              Debug: {{registration.registrationVars}}
+              <br>
+              <br>Show if logged in:
+              <div  ng-show="registration.registrationVars.user.email">
+              <i class="info icon"></i> logged in as {{registration.registrationVars.user.email}}
+              </div>
+              show if children on account ({{children.length}}):               <br>
+
+              <div ng-if="registration.registrationVars.authenticated && children.length > 0">
+                  <p  class="ui blue button">Children: <a href="/account/children">({{children.length}})</a></p>
+              </div>
+
+              <br>Show if not signed in:<br>
+              <p  ng-show="!registration.registrationVars.authenticated">You are not signed in.</p>
+              <br>Show if auth'd and they haven't added a child:              <br>
+
+              <p ng-show="registration.registrationVars.authenticated && children.length == 0">You must add your child to this account before they can register.
+              </p>
+              <br>Show if auth'd and has 0 children in collection:              <br>
+
+              <p ng-if="registration.registrationVars.authenticated && children.length == 0"><a href="/account/children" class="ui blue button">Add Your Child &raquo;</a></p>
+              <br>Show if auth'd and had 1+ children in collection:              <br>
+
+              <div ng-if="registration.registrationVars.authenticated && children.length > 0">
+                            <div class="ui raised segment">
+                            <h3 class="ui dividing blue header">Register Here</h3>
+                        <iframe src="https://docs.google.com/forms/d/1GxXfBZmUJCMYIMqRhwb5Nn-_SGjMjglAn0kPhw9bxy4/viewform?embedded=true" width="760" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+                    </div>
+                </div>
+
+                <br>Show if auth'd and has 1+ children in collection:               <br>
+
+              <div ng-if="registration.registrationVars.authenticated && children.length > 0">
+
+                  <div class="ui raised segment">
+                  <h3 class="ui dividing blue header">Register AutoForm</h3>
+                      Form here...
+                  </div>
+              </div>
+              <!-- end //-->
+            </div>
+          </div>
+    </div>
+
+    </div>
+
+
+
+    <div class="row">
+        <div class="column-md-6">
+              <a href="/registration" class="ui red ribbon label">Registration</a>
+              <span>Sign up now for Fall 2015</span>
+              <p></p>
+              <a href="/parents" class="ui blue ribbon label">Parents</a> About Our Programs
+              <p></p>
+        </div>
+        <div class="column-md-6">
+            <a href="/feedback" class="ui teal right ribbon label">Program Feedback</a>
+            <p class="alert alert-info">"I love this program!"</p>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+      <!-- temp
+  Testing ngVar: {{test}}
+
+  <ol>
+    <li>
+      <a href="/api/registration/example/anyone" target="_self">Server route that anyone can access</a>
+    </li>
+    <li>
+      <a href="/api/registration/example/auth" target="_self">Server route that requires authentication</a>
+    </li>
+    <li>
+      <a href="/api/registration/example/admin" target="_self">Server route that requires admin user</a>
+    </li>
+    <li>
+      <a href="/api/registration/example/render" target="_self">Raw Html rendering example from using swig</a>
+    </li>
+  </ol>
+  <h3><img src="/registration/assets/img/logo.png" /></h3>
+  </br>
+  <p class="alert alert-info">You can find your package in /packages/registration</p>
+  </br>
+  <p class="alert alert-warning">MEAN versions prior to 0.3.2 will be in /node_modules/registration</p>
+  </br>
+  <h3><a href="http://learn.mean.io">Documentation</a></h3>
+  </br>
+  //-->
+
+
+
+
+
+</div>
