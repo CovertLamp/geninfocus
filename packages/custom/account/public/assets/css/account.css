@@ -1,5 +1,7 @@
-.account {
+.account-index {
   text-align: left;
-  color: blue;
 }
 
+.account-index h4 {
+  color: #666666;
+}

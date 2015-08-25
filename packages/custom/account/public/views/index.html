@@ -1,27 +1,60 @@
-<div class="" data-ng-controller="AccountController">
-  <h1>Example view from your new awesome package</h1>
-  <h2>Package: {{package.name}}</h2>
-  <ol>
-    <li>
-      <a href="/api/account/example/anyone" target="_self">Server route that anyone can access</a>
-    </li>
-    <li>
-      <a href="/api/account/example/auth" target="_self">Server route that requires authentication</a>
-    </li>
-    <li>
-      <a href="/api/account/example/admin" target="_self">Server route that requires admin user</a>
-    </li>
-    <li>
-      <a href="/api/account/example/render" target="_self">Raw Html rendering example from using swig</a>
-    </li>
-  </ol>
-  <h3><img src="/account/assets/img/logo.png" /></h3>
-  </br>
-  <p class="alert alert-info">You can find your package in /packages/account</p>
-  </br>
-  <p class="alert alert-warning">MEAN versions prior to 0.3.2 will be in /node_modules/account</p>
-  </br>
-  <h3><a href="http://learn.mean.io">Documentation</a></h3>
-  </br>
+<div class="container account-index" data-ng-controller="AccountController as acct">
+
+
+<div class="panel panel-default">
+  <div class="panel-heading">Account Overview</div>
+  <div class="panel-body">
+    <h3>{{ acct.data.name }} <a href="/account/edit" class="pull-right btn btn-primary">Edit Account</a></h3>
+    <ul class="list-unstyled">
+      <li><span>Email:</span> {{ acct.data.email }}</li>
+      <li>Phone: {{ acct.data.phone }}</li>
+      <li class="address">Address:
+        <div>
+          <ul class="list-unstyled">
+            <li>{{ acct.data.address.street }}</li>
+            <li>{{ acct.data.address.city }}, {{ acct.data.address.state }} {{ acct.data.address.zip }}</li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+
+    <p>Employment</p>
+    <ul class="list-unstyled">
+      <li>Employer: {{ acct.data.employer.name }}</li>
+      <li>Phone: {{ acct.data.employer.phone }}</li>
+      <li class="address">Address:
+        <div>
+          <ul class="list-unstyled">
+            <li>{{ acct.data.employer.address.street }}</li>
+            <li>{{ acct.data.employer.address.city }}, {{ acct.data.employer.address.state }} {{ acct.data.employer.address.zip }}</li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">Children</div>
+  <div class="panel-body">
+
+    <div class="text-right">
+          <a href="/account/child" class="btn btn-primary">Register Child</a>
+    </div>
+
+    <h3 ng-show="!acct.children.length" class="text-center">You have not registered children.</h3>
+
+    <div ng-show="acct.children.length" data-ng-repeat="child in acct.children">
+          <div class="panel">
+              <h4>{{ child.name }}</h4>
+              <p>Gender: {{ child.gender }}  | Age: {{ child.age }} | <a href="/" class="btn btn-link">Edit Profile</a></p>
+
+          </div>
+    </div>
+
+  </div>
+</div>
+
 </div>
 
