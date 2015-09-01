@@ -1,23 +1,126 @@
 <div class="container account-index" data-ng-controller="AccountAddChildController as acctChild">
 
-<div class="panel panel-default">
-  <div class="panel-heading">Add A Child</div>
-  <div class="panel-body">
+<form id="registerChild">
 
-    <form>
+  <!-- General -->
+  <div class="panel panel-default" ng-class="{'activate': acctChild.formPanels[0].status }">
+    <div class="panel-heading" data-ng-click="acctChild.togglePanel('general')">General Information</div>
+
+    <div class="panel-body">
+      <div class="form-group col-md-12">
+        <label for="childName">Name</label>
+        <input type="text" class="form-control" id="childName" placeholder="Name">
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for="childAge">Age</label>
+        <input type="number" class="form-control" id="childAge" placeholder="Age">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="childBirth">Date of Birth</label>
+        <input type="date" class="form-control" id="childBirth" placeholder="Date of Birth">
+      </div>
+      <div class="form-group col-md-4">
+        <label for="gender">Gender</label>
+        <select class="form-control" id="gender">
+          <option>Male</option>
+          <option>Female</option>
+        </select>
+      </div>
+
+
       <div class="form-group col-md-6">
-        <label for="name">Name</label>
-        <input type="name" class="form-control" id="name" placeholder="Name">
+        <label for="legalGuardian">Legal Guardian</label>
+        <select class="form-control" id="legalGuardian">
+          <option>Mother</option>
+          <option>Father</option>
+          <option>Both</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="livingArrangements">Living Arrangements</label>
+        <select class="form-control" id="livingArrangements">
+          <option>Mother</option>
+          <option>Father</option>
+          <option>Both</option>
+          <option>Other</option>
+        </select>
       </div>
 
       <div class="col-md-12 text-right">
-        <a href="/account" class="btn btn-default">Cancel</a>&nbsp;
-        <button class="btn btn-primary">Save Changes</button>
+        <button class="btn btn-default" data-ng-click="acctChild.activatePanel('prev',0)">< Back></button>&nbsp;
+        <button class="btn btn-primary" data-ng-click="acctChild.activatePanel('next',0)">Next ></button>
       </div>
-    </form>
+    </div>
+  </div>
+
+  <!-- Guardian -->
+  <div class="panel panel-default" ng-class="{'activate': acctChild.formPanels[1].status }">
+    <div class="panel-heading" data-ng-click="acctChild.togglePanel('guardian')">Guardian Information</div>
+
+    <div class="panel-body">
+      Guardian
+       <div class="col-md-12 text-right">
+        <button class="btn btn-default" data-ng-click="acctChild.activatePanel('prev',1)">< Back></button>&nbsp;
+        <button class="btn btn-primary" data-ng-click="acctChild.activatePanel('next',1)">Next ></button>
+      </div>
+    </div>
 
   </div>
-</div>
+
+  <!-- Child Release -->
+  <div class="panel panel-default" ng-class="{'activate': acctChild.formPanels[2].status }">
+    <div class="panel-heading" data-ng-click="acctChild.togglePanel('release')">Child Release Information</div>
+
+    <div class="panel-body">
+      Child Release
+      <div class="col-md-12 text-right">
+        <button class="btn btn-default" data-ng-click="acctChild.activatePanel('prev',2)">< Back></button>&nbsp;
+        <button class="btn btn-primary" data-ng-click="acctChild.activatePanel('next',2)">Next ></button>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- Emergency Contacts -->
+  <div class="panel panel-default" ng-class="{'activate': acctChild.formPanels[3].status }">
+    <div class="panel-heading" data-ng-click="acctChild.togglePanel('emergency')">Emergency Contact Information</div>
+
+    <div class="panel-body">
+      Emegency Contacts
+      <div class="col-md-12 text-right">
+        <button class="btn btn-default" data-ng-click="acctChild.activatePanel('prev',3)">< Back></button>&nbsp;
+        <button class="btn btn-primary" data-ng-click="acctChild.activatePanel('next',3)">Next ></button>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- Medical Authorizatin Contacts -->
+  <div class="panel panel-default" ng-class="{'activate': acctChild.formPanels[4].status }">
+    <div class="panel-heading" data-ng-click="acctChild.togglePanel('medical')">Medical Authorization</div>
+
+    <div class="panel-body">
+      Emegency Medical Authorization
+      <div class="col-md-12 text-right">
+        <button class="btn btn-default" data-ng-click="acctChild.activatePanel('prev',4)">< Back></button>&nbsp;
+        <button class="btn btn-primary" data-ng-click="acctChild.activatePanel('next',4)">Next ></button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Save Child Profile -->
+  <div class="col-md-12 text-right">
+    <button class="btn btn-primary" data-ng-class="{'disabled': !acctChild.validated}">Save Changes</button>
+  </div>
+
+</form>
+
 
 
 </div>

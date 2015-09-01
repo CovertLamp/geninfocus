@@ -5,3 +5,9 @@
 .account-index h4 {
   color: #666666;
 }
+#registerChild .panel-body {
+  display: none;
+}
+#registerChild .activate .panel-body {
+  display: block;
+}
